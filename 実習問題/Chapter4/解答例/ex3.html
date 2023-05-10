@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js 演習問題</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+	</head>
+	
+	<body>
+		<h2>入力した数値のたし算</h2>
+		<div id="app">
+			<label>数値１ = <input type="number" v-model="number1"></label>
+			<br>
+      <label>数値２ = <input type="number" v-model="number2"></label>
+      <hr>
+      <table border="1">
+        <caption>四則演算</caption>
+        <tr>
+          <th>演算の種類</th>
+          <th>数値１</th><th>演算記号</th><th>数値２</th>
+          <th>演算結果</th>
+        </tr>
+        <tr>
+          <td>たし算</td>
+          <td>{{ number1 }}</td><td> + </td><td>{{ number2 }}</td>
+          <td>{{ parseInt(number1) + parseInt(number2) }}</td>
+        </tr>
+        <tr>
+          <td>ひき算</td>
+          <td>{{ number1 }}</td><td> - </td><td>{{ number2 }}</td>
+          <td>{{ number1 - number2 }}</td>
+        </tr>
+        <tr>
+          <td>かけ算</td>
+          <td>{{ number1 }}</td><td> * </td><td>{{ number2 }}</td>
+          <td>{{ number1 * number2 }}</td>
+        </tr>
+        <tr>
+          <td>わり算</td>
+          <td>{{ number1 }}</td><td> / </td><td>{{ number2 }}</td>
+          <td>{{ number1 / number2 }}</td>
+        </tr>
+        <tr>
+          <td>剰余算</td>
+          <td>{{ number1 }}</td><td> % </td><td>{{ number2 }}</td>
+          <td>{{ number1 % number2 }}</td>
+        </tr>
+      </table>
+		</div>
+		
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					number1: 0,
+					number2: 0
+				}
+			})
+		</script>
+	</body>
+
+</html>

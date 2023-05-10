@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js 演習問題</title>
+		<link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+	</head>
+
+	<body>
+		<h2>クラスを指定する例</h2>
+		<style>
+			.top-order {
+				color: red;
+				font-size: 200%;
+			}
+			.second-order {
+				color: tomato;
+				font-size: 150%;
+			}
+			.third-order {
+				color: pink;
+				font-size: 100%;
+			}
+		</style>
+
+		<div id="app">			
+			<table border="1">
+				<caption>フロントエンドフレームワーク・シェア順位</caption>
+				<tr>
+					<th>順位</th><th>フレームワーク名</th>
+				</tr>
+				<tr>
+					<td>１位</td><td v-bind:class="top">React.js</td>
+				</tr>
+				<tr>
+					<td>２位</td><td v-bind:class="second">Vue.js</td>
+				</tr>
+				<tr>
+					<td>３位</td><td v-bind:class="third">Angular.js</td>
+				</tr>
+			</table>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					top: 'top-order',
+					second: 'second-order',
+					third: 'third-order'
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js 演習問題</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+	</head>
+
+	<body>
+		<h2>インラインスタイルを指定する例</h2>
+		<div id="app">
+			<ol>フロントエンドフレームワークシェア順位
+				<li v-bind:style="{color: topColor, fontSize: topSize}">
+					React.js
+				</li>
+				<li v-bind:style="{color: secColor, fontSize: secSize}">
+					Vue.js
+				</li>
+				<li v-bind:style="{color: thdColor, fontSize: thdSize}">
+					Angular.js
+				</li>
+			</ol>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					topColor: 'red',
+					secColor: 'blue',
+					thdColor: 'green',
+					topSize: '200%',
+          secSize: '150%',
+          thdSize: '100%'
+				}
+			})
+		</script>
+	</body>
+</html>
