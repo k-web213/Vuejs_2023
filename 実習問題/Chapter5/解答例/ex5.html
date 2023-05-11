@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js 演習問題</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+	</head>
+	
+	<body>
+		<h2>クリックしたら、四則演算する例</h2>
+		<div id="app">
+      <p>
+        数１ = <input v-model.number="number1"><br>
+        数２ = <input v-model.number="number2">
+      </p>
+      <button v-on:click="add(number1, number2)">たし算</button>
+      <button v-on:click="sub(number1, number2)">ひき算</button>
+      <button v-on:click="mul(number1, number2)">かけ算</button>
+      <button v-on:click="div(number1, number2)">わり算</button>
+      <button v-on:click="mod(number1, number2)">あまり</button>
+      <hr>
+      <h3>計算結果</h3>
+			<p>{{ number1 }} {{ operator }} {{ number2 }} = {{ answer }}</p> 
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					number1: 0,
+          number2: 0,
+					answer: 0,
+          operator: ''
+				},
+				methods: {
+					add: function(number1, number2) {
+            this.operator = ' + ';
+						this.answer = number1 + number2;
+					},
+          sub: function(number1, number2) {
+            this.operator = ' - ';
+						this.answer = number1 - number2;
+					},
+          mul: function(number1, number2) {
+            this.operator = ' * ';
+						this.answer = number1 * number2;
+					},
+          div: function(number1, number2) {
+            this.operator = ' / ';
+						this.answer = number1 / number2;
+					},
+          mod: function(number1, number2) {
+            this.operator = ' % ';
+						this.answer = number1 % number2;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

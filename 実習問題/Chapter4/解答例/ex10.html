@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js 演習問題</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+	</head>
+	
+	<body>
+		<h2>入力を自動的に数値に変換する例</h2>
+		<div id="app">
+			<table border="1">
+				<caption>身長・体重の入力</caption>
+				<tr>
+					<th>身長（ｃｍ単位）</th>
+					<td>
+						<input v-model.number="height" type="number">
+					</td>
+					<td>センチメートル</td>
+				</tr>
+				<tr>
+					<th>体重（ｋｇ単位）</th>
+					<td>
+						<input v-model.number="weight" type="number">
+					</td>
+					<td>キログラム</td>
+				</tr>
+			</table>
+			<hr>
+			<h3>入力情報確認</h3>
+			<p>
+				身長：<br>
+				ｃｍ単位 = {{ height }} センチメートル<br>
+				ｍ単位 = {{ height / 100 }} メートル
+			</p>
+			<p>
+				体重：<br>
+				ｋｇ単位 = {{ weight }} キログラム<br>
+				ｇ単位 = {{ weight * 1000 }} グラム
+			</p>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					height: 0,
+					weight: 0
+				}
+			})
+		</script>
+	</body>
+</html>

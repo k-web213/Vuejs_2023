@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue.js 演習問題</title>
+		
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+
+	</head>
+	
+	<body>
+		<h2>propsで値を渡す</h2>
+		<div id="app">
+      <my-product v-for="(item, index) in productList" 
+					v-bind:name="item.name"
+					v-bind:price="item.price"
+					v-bind:tax-price="taxPrice">
+      </my-product>
+		</div>
+
+		<script>
+			var MyProduct = {
+				template: '<p class="my-comp">\
+          商品名：{{name}}、定価：{{price}} 円、\
+					税込み価格：{{taxPrice}} 円</p>',
+				props: ['name', 'price', 'taxPrice'],
+				computed: {
+					taxPrice: function() {
+						return Math.floor(this.price * 1.1)
+					}
+				}			
+			}
+			new Vue({
+				el: '#app',
+				components: {
+					'my-product': MyProduct
+				},
+        data: {
+          productList: [
+            {name: 'りんこ', price: 120},
+            {name: 'みかん', price: 100},
+            {name: 'もも', price: 180},
+            {name: 'バナナ', price: 150},
+            {name: 'いちご', price: 250},
+          ]
+        },
+				
+			})
+		</script>
+		
+		<style>
+			.my-comp {
+				width: 400px;
+				background-color: #ffffe0;
+				border: solid;
+				border-color: darkorange;
+				border-radius: 8px;
+				padding: 8px;
+			}
+		</style>
+	</body>
+</html>

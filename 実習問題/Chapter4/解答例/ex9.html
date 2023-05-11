@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.js 演習問題</title>
+		<link rel="stylesheet" href="style.css" >
+		<script src=
+			"https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+		</script>
+	</head>
+	
+	<body>
+		<h2>選択したラジオボタンを表示する例</h2>
+		<div id="app">
+			<table border="1">
+				<caption>希望学科登録</caption>
+				<tr>
+					<th>氏名</th>
+					<td>
+						<input type="text" v-model="name">
+					</td>
+				</tr>
+				<tr>
+					<th>年齢</th>
+					<td>
+						<input type="number" v-model="age">
+					</td>
+				</tr>
+				<tr>
+					<th>性別</th>
+					<td>
+						<input type="radio" value="男性" v-model="gender">男性
+						<input type="radio" value="女性" v-model="gender">女性
+						<input type="radio" value="未回答" v-model="gender">未回答
+					</td>
+				</tr>
+				<tr>
+          <th>履修したい科目</th>
+          <td>
+            <select v-model="cource" multiple>
+              <option disabled value="">
+                希望科目を複数選択してください</option>
+              <option>Python</option>
+              <option>Java</option>
+              <option>JavaScript</option>
+              <option>Go言語</option>
+              <option>Rust</option>
+              <option>Ruby</option>
+              <option>Scala</option>
+            </select>
+				</tr>
+      </table>
+      <hr>
+      <table>
+        <caption>入力された情報</caption>
+        <tr>
+          <th>氏名</th><td>{{ name }}</td>
+        </tr>
+        <tr>
+          <th>年齢</th><td>{{ age }}</td>
+        </tr>
+        <tr>
+          <th>性別</th><td>{{ gender }}</td>
+        </tr>
+        <tr>
+          <th>履修したい科目</th><td>{{ cource }}</td>
+        </tr>
+      </table>
+		</div>
+
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+          name: '',
+          age: 0,
+          gender: '',
+          cource: []
+				}
+			})
+		</script>
+
+	</body>
+</html>
