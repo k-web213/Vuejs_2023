@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+</head>
+<body>
+    <h2>四則演算</h2>
+    <div id="app">
+        <p>数１＝
+            <input type="number" v-model="number1">
+        </p>
+        <p>数２＝
+            <input type="number" v-model="number2">
+        </p>
+        <P>演算<br>
+            <button v-on:click="add()">＋</button>
+            <button v-on:click="sub()">ー</button>
+            <button v-on:click="mul()">＊</button>
+            <button v-on:click="div()">／</button>
+            <button v-on:click="mod()">％</button>
+        </P>
+        <p>
+            計算結果<br>
+            {{ number1 }} {{ operator }} {{ number2 }} = {{ result }}
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                number1: 0,
+                number2: 0,
+                result: 0,
+                operator: ' ＋ '
+            },
+            methods: {
+                add: function () {
+                    this.operator = ' ＋ ';
+                    this.result = parseInt(this.number1) + parseInt(this.number2);
+                },
+                sub: function () {
+                    this.operator = ' ー ';
+                    this.result = this.number1 - this.number2;
+                },
+                mul: function () {
+                    this.operator = ' ＊ ';
+                    this.result = this.number1 * this.number2;
+                },
+                div: function () {
+                    this.operator = ' ／ ';
+                    this.result = this.number1 / this.number2;
+                },
+                mod: function () {
+                    this.operator = ' ％ ';
+                    this.result = this.number1 % this.number2;
+                },
+            }
+        })
+    </script>
+</body>
+</html>

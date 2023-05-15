@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+  </head>
+  
+  <body>
+    <h2>入力した文章の検索</h2>
+    <div id="app">
+        <p>文章入力</p>
+        <textarea v-model="tText"></textarea>
+        <p>検索文字列＝
+            <input v-model="mojiretu">
+        </p>
+        <hr>
+        <p>文章は「 {{tText}} 」</p>
+        <p>検索文字列は、{{mojiretu}}</p>
+        <p>文章の{{tText.indexOf(mojiretu)+1}}文字目にあります</p>
+
+    </div>
+
+    <script>
+      new Vue({
+        el:'#app',
+        data:{
+            tText:'',
+            mojiretu:0
+        }
+      })
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+</head>
+<body>
+    <h2>配列データを、テーブルで表示する例</h2>
+    <div id="app">
+        <h3>東北地方基本情報</h3>
+        <table border="1">
+            <thead>
+                <!-- テーブルヘッダーのくり返し -->
+                <th v-for="item in header">{{item}}</th>
+            </thead>
+            <tbody>
+                <!-- 1行のくり返し -->
+                <tr v-for="line in prefecture">
+                <!-- 1データのくり返し -->
+                	<td v-for="item in line">{{item}}</td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                header:["県名","県庁所在地","県の人口","県庁所在地の人口"],
+                prefecture:[
+                {name:"青森県",city:"青森市",population:142.9,cityPoulation:28.76},
+                {name:"岩手県",city:"盛岡市",population:122.9,cityPoulation:29.76},
+                {name:"秋田県",city:"秋田市",population:96.95,cityPoulation:31.58},
+                {name:"宮城県",city:"仙台市",population:230.6,cityPoulation:108.2},
+                {name:"山形県",city:"山形市",population:108,cityPoulation:25.38},
+                {name:"福島県",city:"福島市",population:184.8,cityPoulation:29.42}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

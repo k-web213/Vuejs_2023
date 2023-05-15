@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+</head>
+
+<body>
+    <h2>商品の定価と税込み価格</h2>
+    <div id="app">
+        <p>商品名：{{productName}}</p>
+        <p>定価：{{ price }} 円</p>
+        <p>税込み価格：{{ price * 1.1 }} 円</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // 商品名 
+                productName: 'リンゴ',
+                // 定価 
+                price: 250
+            }
+        })
+    </script>
+</body>
+</html>

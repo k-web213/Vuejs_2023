@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+</head>
+<body>
+    <h2>四国の都道府県</h2>
+    <div id="app">
+        <p>四国全体：{{ prefectures }}</p>
+        <ul>
+            <li>{{ prefectures[0] }}</li>
+            <li>{{ prefectures[1]  }}</li>
+            <li>{{ prefectures[2]  }}</li>
+            <li>{{ prefectures[3]  }}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                prefectures: ['徳島県', '香川県', '愛媛県', '高知県']
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>効果測定</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+</head>
+
+<body>
+    <h2>個人情報入力</h2>
+    <div id="app">
+        <p>氏名：<input type="text" v-model="name"></p>
+        <p>性別：
+            <label>男性
+                <input type="radio" value="男性" v-model="gender">
+            </label>
+            <label>女性
+                <input type="radio" value="女性" v-model="gender">
+            </label>
+            <label>未回答
+                <input type="radio" value="未回答" v-model="gender">
+            </label>
+        </p>
+        <p>
+            受講したいコース<br>
+            <label>
+                <input type="checkbox" value="プログラミング言語" v-model="subjects">プログラミング言語
+            </label>
+            <label>
+                <input type="checkbox" value="オブジェクト指向分析・設計" v-model="subjects">オブジェクト指向分析・設計
+            </label>
+            <label>
+                <input type="checkbox" value="ネットワーク構築" v-model="subjects">ネットワーク構築
+            </label>
+            <label>
+                <input type="checkbox" value="セキュリティプログラミング" v-model="subjects">セキュアプログラミング
+            </label>
+        </p>
+        <p>入力情報</p>
+        <p>氏名：{{ name }}</p>
+        <p>性別：{{ gender }}</p>
+        <p>受講したいコース：{{ subjects }}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                gender: '男性',
+                subjects: []
+            }
+        })
+    </script>
+</body>
+
+</html>
