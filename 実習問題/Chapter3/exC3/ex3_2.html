@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js 演習問題</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src=
+      "https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js">
+    </script>
+  </head>
+
+  <body>
+    <h2>インラインスタイルを指定する例</h2>
+    <div id="app">
+      <ol>フロントエンドフレームワークシェア順位
+        <li :style="{color:onColor[0],fontSize:onSize[2]}">
+          React.js
+        </li>
+        <li :style="{color:onColor[1],fontSize:onSize[1]}">
+          Vue.js
+        </li>
+        <li :style="{color:onColor[2],fontSize:onSize[0]}">
+          Angular.js
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+					onColor:['red','blue','green'],
+					onSize:['100%','150%','200%']
+        }
+      })
+    </script>
+  </body>
+</html>
+
